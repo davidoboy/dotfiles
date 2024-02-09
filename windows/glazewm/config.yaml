@@ -438,13 +438,13 @@ keybindings:
   - command: exec 'C:/Users/davidoboy/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Image Viewer'
     binding: "Alt+I"
 
-  - command: exec 'C:/Users/Davidoboy/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Cava'
+  - command: exec 'C:/Users/Davidoboy/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Cava' # https://github.com/karlstav/cava
     binding: "Alt+O"
 
   - command: exec 'C:/Users/davidoboy/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Steam'
     binding: "Alt+Shift+S"
 
-  - command: exec 'C:/Users/davidoboy/.glaze-wm/components/game_hub/Launch.vbs'
+  - command: exec 'C:/Users/davidoboy/.glaze-wm/components/game_hub/Launch.vbs' # https://www.deviantart.com/not-finch/art/GameHUB-launcher-2-for-Rainmeter-785369648
     binding: "Alt+Shift+G"
 
   # Change focus to a workspace defined in `workspaces` config.
