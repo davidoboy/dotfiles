@@ -2,6 +2,8 @@
 
 Depending on your screen size you may need to adjust the sizes of the componenets and the max text limit to get a similar look. Hopefully this explains everything, might not even make sense.
 
+## For anyone who just wants the glaze config and not the spotify bar ignore everything below.
+
 
 **This component is very buggy, as I'm not good with this stuff, so please only use it if you are fine with experiencing the bugs. The code is also a mess, stuff may not be efficient or done well and sometimes may require authentication again. You may also encounter other errors as I have not added error handling for everything like when an album title contains quotation marks it can break.**
 
