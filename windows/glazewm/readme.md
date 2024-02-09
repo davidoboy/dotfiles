@@ -19,7 +19,7 @@ Updating the album art requires refreshing the bar using [Glaze IPC](https://git
 
 The media buttons can pause/play other media as they dont use the api since it would require spotify premium. Sometimes they might not even work at all.
 
-AHK Script:
+AHK Script (found on the GlazeWM Discord):
 
 ``` AHK
 WinHide, ahk_class Shell_TrayWnd
