@@ -3,9 +3,9 @@
 Depending on your screen size you may need to adjust the sizes of the componenets and the max text limit to get a similar look. Hopefully this explains everything, might not even make sense.
 
 
-**This component is very buggy, as I'm not good with this stuff, so please only use it if you are fine with experiencing the bugs. The code is also a mess, stuff may not be efficient or done well and sometimes may require authentication again. You may also encounter other errors as I have not added error handling for everything like when an album title contains quotataion marks it can break.**
+**This component is very buggy, as I'm not good with this stuff, so please only use it if you are fine with experiencing the bugs. The code is also a mess, stuff may not be efficient or done well and sometimes may require authentication again. You may also encounter other errors as I have not added error handling for everything like when an album title contains quotation marks it can break.**
 
-Hope fully you can understanding everything.
+Hope fully everything makes sense.
 
 # Spotify Component 
 
