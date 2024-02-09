@@ -3,7 +3,9 @@
 Depending on your screen size you may need to adjust the sizes of the componenets and the max text limit to get a similar look. Hopefully this explains everything, might not even make sense.
 
 
-**This component is very buggy, as I'm not good with this stuff, so please only use it if you are fine with experiencing the bugs. The code is also a mess**
+**This component is very buggy, as I'm not good with this stuff, so please only use it if you are fine with experiencing the bugs. The code is also a mess, stuff may not be efficient or done well and sometimes may require authentication again. You may also encounter other errors as I have not added error handling for everything like when an album title contains quotataion marks it can break.**
+
+Hope fully you can understanding everything.
 
 # Spotify Component 
 
@@ -11,7 +13,11 @@ The spotify component is a custom music component made to only display spotify m
 
 ![alt text](assets/images/spotify_component.png)
 
-Updating the album art requires refreshing the bar using [Glaze IPC](https://github.com/glzr-io/glazewm-js/tree/main). This can lead to unwanted effects, such as the taskbar being enabled in fullscreen apps like games. This can be fixed by disabling the taskbar with a ahk script, stopping the script from running or pausing the music. However the AHK script will cause you to never see your taskbar again until you restart your system.
+### More Bugs:
+ 
+Updating the album art requires refreshing the bar using [Glaze IPC](https://github.com/glzr-io/glazewm-js/tree/main). This can lead to unwanted effects, such as the taskbar being enabled in fullscreen apps like games. This can be fixed by disabling the taskbar with an AHK script, stopping the script from running or pausing the music. However the AHK script will cause you to never see your taskbar again until you restart your system.
+
+The media buttons can pause/play other media as they dont use the api since it would require spotify premium. Sometimes they might not even work at all.
 
 AHK Script:
 
