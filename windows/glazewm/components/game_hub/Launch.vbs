@@ -1,0 +1,1 @@
+CreateObject("Wscript.Shell").Run "C:\Users\Davidoboy\.glaze-wm\components\game_hub\GameHub.bat",0,True

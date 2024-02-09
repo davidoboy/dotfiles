@@ -1,0 +1,20 @@
+{
+  "name": "glazewm-custom-components",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "davidoboy",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.7",
+    "express": "^4.18.2",
+    "glazewm": "^1.1.2",
+    "querystring": "^0.2.1",
+    "robotjs": "^0.6.0",
+    "wifi-control": "^2.0.1",
+    "ws": "^8.16.0"
+  }
+}

@@ -1,0 +1,492 @@
+background: &background '#1a1b26'
+foreground: &foreground '#a9b1d6'
+accent: &accent '#7aa2f7'
+
+red: &red '#f7768e'
+orange: &orange '#e0af68'
+green: &green '#9ece6a'
+blue: &blue '#7dcfff'
+purple: &purple '#bb9af7'
+
+components: &components
+  background: *background
+  font_size: "13px"
+
+gaps:
+  inner_gap: 15px
+  outer_gap: 10px
+
+general:
+  show_floating_on_top: false
+  cursor_follows_focus: false 
+  focus_follows_cursor: true
+  toggle_workspace_on_refocus: true
+
+focus_borders:
+  active:
+    enabled: true
+    color: *accent
+  inactive:
+    enabled: false
+
+bar:
+  enabled: true
+  height: 40
+  position: "top" 
+  opacity: 1
+  background: "transparent"
+  foreground: *foreground
+  border_color: "transparent"
+  font_family: "JetBrainsMono Nerd Font Mono"
+  font_size: "20px"
+  padding: "1 6 1 0"
+  offset_x: 10
+  offset_y: 5
+  border_width: 1
+
+  components_left:
+    # Text Component - Logo Button
+
+    - type: "text"
+      text: ""
+      font_size: "30px"
+      foreground: "#357EC7"
+      background: *background
+      border_color: *background
+      padding: "0 8 0 8"
+      border_width: "5"
+      border_radius: "5"
+      margin: "0 10 0 0"
+      left_click_command: exec 'C:/ProgramData/Microsoft/Windows/Start Menu/Programs/WezTerm' # Replace with whatever terminal you use
+
+    # Workspaces Component
+
+    - type: "workspaces"
+      focused_workspace_background: "#7aa2f7"
+      focused_workspace_foreground: "#24283b"
+      default_workspace_background: *background
+      default_workspace_foreground: "#a9b1d6"
+      border_width: "5"
+      border_radius: "5"
+      padding: "0 0 0 0"
+      margin: "0 10 0 0"
+      border_color: *background
+
+    # Window Title Component
+
+    - type: "window title"
+      max_title_length: 60
+      font_size: "13px"
+      background: "#7aa2f7"
+      foreground: "#1a1b26"
+      background: *accent
+      border_color: *accent
+      padding: "0 5 0 5"
+      border_width: "5"
+      border_radius: "5"
+
+  components_center:
+
+    # Text File Component - Spotify
+
+    - type: "image"
+      source: 'C:/Users/YOURUSERNAME/.glaze-wm/components/spotify/assets/Blood Moon.png' # Automatically updates if using the Spotify component, 
+      padding: "0 5 0 5"
+      background: *background
+      border_color: *background
+      margin: "0 -10 0 0"
+      border_width: "5"
+      border_radius: "5"
+    
+
+    - type: "text file"
+      file_path: "C:/Users/YOURUSERNAME/.glaze-wm/components/spotify/output.txt" # Replace with the path to your output.txt file
+      <<: *components
+      foreground: *accent
+      background: *background
+      padding: "0 20 0 10"
+
+    # Text Component - Next Track Button
+
+    - type: text
+      text: ""
+      background: *background
+      padding: "0 20 0 0"
+      left_click_command: exec '%UserProfile%\.glaze-wm\components\spotify\previous_track.vbs' # Using vbs was the only way I could find to not have the console window pop up
+    # Text Component - Play/Pause Button
+
+    - type: text
+      text: "󰐎"
+      background: *background
+      padding: "0 20 0 0"
+      left_click_command: exec '%UserProfile%\.glaze-wm\components\spotify\toggle_playback.vbs'
+
+    # Text Component - Previous Track Button
+
+    - type: text
+      text: ""
+      background: *background
+      left_click_command: exec '%UserProfile%\.glaze-wm\components\spotify\next_track.vbs'
+      border_color: *background
+      padding: "0 10 0 0"
+      border_width: "5"
+      border_radius: "5"
+      margin: "0 0 0 -10"
+
+  components_right:
+
+    # System Tray Component
+
+    - type: "system tray"
+      label_expand_text:  "" # I keep my system tray expanded so I removed the text but you can add a space if you want an invisible label
+      label_collapse_text: ""
+      background: *background
+      border_color: *background
+      padding: "5 5 5 5"
+      border_width: "5"
+      border_radius: "5"
+      margin: "0 10 0 0"
+
+    # Text File Component - WiFi
+
+    - type: "network"
+      label_no_internet: "󱚼<attr fs='13'> CASE</attr>" # Manually added my wifi name, remove/replace
+      label_ethernet: "<attr fs='13'> CASE</attr>"
+      label_wifi_strength_0: "󱚵<attr fs='13'> CASE</attr>"
+      label_wifi_strength_25: "󱚵<attr fs='13'> CASE</attr>"
+      label_wifi_strength_50: "󱚶<attr fs='13'> CASE</attr>"
+      label_wifi_strength_75: "<attr fs='13'> CASE</attr>"
+      label_wifi_strength_100: "<attr fs='13'> CASE</attr>"
+      font_size: "25px"
+      background: "#1a1b26"
+      foreground: *red
+      padding: "0 5 0 0"
+      background: *background
+      border_color: *background
+      padding: "0 20 0 5"
+      border_width: "5"
+      border_radius: "5"
+      margin: "0 -7 0 0"
+
+    # Volume Component
+
+    - type: "volume"
+      background: "#1a1b26"
+      foreground: *orange
+      font_size: "13px"
+      label: "<attr fs='20'>󰕾</attr> {volume_level}%"
+      label_low: "<attr fs='20'>󰕾</attr> {volume_level}%"
+      label_medium: "<attr fs='20'>󰕾</attr> {volume_level}%"
+      label_high: "<attr fs='20'>󰕾</attr> {volume_level}%"
+      label_mute: "<attr fs='20'>󰝟</attr> {volume_level}%"
+      padding: "0 20 0 0"
+
+    # Text Component - Battery
+
+    - type: "text"
+      text: ""
+      font_size: "25px"
+      background: *background
+      foreground: *green
+      padding: "0 5 0 0"
+
+    - type: "battery"
+      foreground: *green
+      background: *background
+      font_size: "13px"
+      label_charging: "{battery_level}%"
+      label_draining: "{battery_level}%"
+      label_power_saver: "{battery_level}%"
+      padding: "0 20 0 0"
+
+    # Clock Component - Date
+
+    - type: "text"
+      text: "󰸗"
+      font_size: "17px"
+      foreground: *blue
+      background: *background
+      padding: "0 5 0 0"
+
+    - type: "clock"
+      time_formatting: "ddd dd"
+      font_size: "13px"
+      foreground: *blue
+      background: *background
+      padding: "0 20 0 0"
+
+    # Clock Component - Time
+
+    - type: "text"
+      text: ""
+      foreground: *purple
+      background: *background
+      padding: "0 5 0 0"
+
+    - type: "clock"
+      time_formatting: "HHHH:mm"
+      font_size: "13px"
+      foreground: *purple
+      background: *background
+      border_color: *background
+      padding: "0 5 0 0"
+      border_width: "5"
+      border_radius: "5"
+      margin: "0 10 0 -5"
+
+    # Tiling Direction Component
+    
+    - type: "tiling direction"
+      label_horizontal: "󱂪" #⮂ 󰚉 ⬓ 󰯌
+      label_vertical: "󱔓" #⮁ 󰚈 󱂪 󰯋
+      background: *background #"#ffffff33"
+      border_color: *background
+      foreground: *blue
+      margin: "0 10 0 0"
+      padding: "0 8 0 8"
+      border_width: "5"
+      border_radius: "5"
+      font_size: 25
+
+    # Text Component - Power Button
+
+    - type: "text"
+      text: ""
+      foreground: "#1a1b26"
+      background: "#FF5D62"
+      border_color: "#FF5D62"
+      padding: "0 8 0 8"
+      border_width: "5"
+      border_radius: "5"
+      left_click_command: exec '%UserProfile%\.glaze-wm\components\shutdown\shutdown.bat'
+
+workspaces:
+
+  # Home
+
+  - name: "1"
+    display_name: "󰋜"
+    keep_alive: true
+
+  # Web
+
+  - name: "2"
+    display_name: "󰖟"
+    keep_alive: true
+
+  # Notes
+
+  - name: "3" 
+    display_name: "󰠮"
+    keep_alive: true
+  
+  # Messaging
+
+  - name: "4"
+    display_name: "󰭹"
+    keep_alive: true
+
+  # Programming
+
+  - name: "5"
+    display_name: "󰨞"
+    keep_alive: true
+
+  # Graphic Design
+
+  - name: "6"
+    display_name: ""
+    keep_alive: true
+
+  # Game Launcher
+
+  - name: "7"
+    display_name: ""
+    keep_alive: true
+
+  # Games
+
+  - name: "8"
+    display_name: "󰊴"
+    keep_alive: true
+
+  # Video Call
+
+  - name: "9"
+    display_name: "󰕧"
+    keep_alive: true
+
+  # Music
+
+  - name: "10"
+    display_name: ""
+    keep_alive: true
+
+window_rules:
+
+  - command: "ignore"
+    match_process_name: "/Taskmgr|ScreenClippingHost/"
+
+  - command: "set floating"
+    match_process_name: "PureRef"
+
+  - command: "set floating"
+    match_class_name: "#32770"
+
+  - command: "resize borders 0px -3px 0px 0px"
+    match_process_name: "firefox"
+
+  - command: "resize borders 0px -10px 0px -10px"
+    match_process_name: "steamwebhelper|EpicGamesLauncher"
+
+
+  - command: "move to workspace 2"
+    match_process_name: "firefox|chrome|brave|edge|opera|vivaldi"
+
+  - command: "move to workspace 3"
+    match_process_name: "Obsidian|Notepad"
+
+  - command: "move to workspace 4"
+    match_process_name: "Discord|Beeper"
+
+  - command: "move to workspace 5"
+    match_process_name: "Code - Insiders|RobloxStudioBeta|devenv"
+
+  - command: "move to workspace 6"
+    match_process_name: "Photoshop|Illustrator|PremierePro|Blender|GIMP|Krita|Inkscape"
+
+  - command: "move to workspace 7"
+    match_process_name: "steamwebhelper|EpicGamesLauncher"
+
+  - command: "move to workspace 8"
+    match_process_name: "MHUR|FortniteClient-Win64-Shipping|RobloxPlayerLauncher|Bendy and the Dark Revival"
+
+  - command: "move to workspace 9"
+    match_process_name: "Zoom|msteams"
+
+  - command: "move to workspace 10"
+    match_process_name: "Spotify"
+
+keybindings:
+  # Move focused window in a given direction.
+  - command: "move left"
+    binding: "Alt+Shift+Left"
+  - command: "move right"
+    binding: "Alt+Shift+Right"
+  - command: "move up"
+    binding: "Alt+Shift+Up"
+  - command: "move down"
+    binding: "Alt+Shift+Down"
+
+  # Resize focused window by a percentage or pixel amount.
+  - command: "resize width -2%"
+    binding: "Alt+Shift+U"
+  - command: "resize width +2%"
+    binding: "Alt+Shift+P"
+  - command: "resize height +2%"
+    binding: "Alt+Shift+O"
+  - command: "resize height -2%"
+    binding: "Alt+Shift+I"
+
+  # Change tiling direction. This determines where new tiling windows will be inserted.
+  - command: "tiling direction toggle"
+    binding: "Alt+V"
+
+  # Change the focused window to be floating / tiling.
+  - command: "toggle floating"
+    binding: "Alt+Shift+Space"
+
+  # Change the focused window to be maximized / unmaximized.
+  - command: "toggle maximized"
+    binding: "Alt+X"
+
+  # Minimize focused window.
+  - command: "set minimized"
+    binding: "Alt+M"
+
+  # Close focused window.
+  - command: "close"
+    binding: "Alt+Shift+Q"
+
+  # Kill GlazeWM process safely.
+  - command: "exit wm"
+    binding: "Alt+Shift+E"
+
+  # Re-evaluate configuration file.
+  - command: "reload config"
+    binding: "Alt+Shift+R"
+
+
+  - command: exec 'C:/ProgramData/Microsoft/Windows/Start Menu/Programs/WezTerm'
+    binding: "Alt+Enter"
+
+  - command: "exec firefox.exe"
+    binding: "Alt+F"
+
+  - command: "exec explorer.exe"
+    binding: "Alt+E"
+
+  - command: "exec 'C:/Users/davidoboy/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Spotify"
+    binding: "Alt+S"
+
+  - command: "exec 'C:/Users/davidoboy/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Visual Studio Code - Insiders/Visual Studio Code - Insiders'"
+    binding: "Alt+C"
+
+  - command: exec 'C:/Users/davidoboy/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Discord Inc/Discord'
+    binding: "Alt+D"
+
+  - command: exec 'C:/Users/davidoboy/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Image Viewer'
+    binding: "Alt+I"
+
+  - command: exec 'C:/Users/Davidoboy/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Cava'
+    binding: "Alt+O"
+
+  - command: exec 'C:/Users/davidoboy/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Steam'
+    binding: "Alt+Shift+S"
+
+  - command: exec 'C:/Users/davidoboy/.glaze-wm/components/game_hub/Launch.vbs'
+    binding: "Alt+Shift+G"
+
+  # Change focus to a workspace defined in `workspaces` config.
+  - command: "focus workspace 1"
+    binding: "Alt+1"
+  - command: "focus workspace 2"
+    binding: "Alt+2"
+  - command: "focus workspace 3"
+    binding: "Alt+3"
+  - command: "focus workspace 4"
+    binding: "Alt+4"
+  - command: "focus workspace 5"
+    binding: "Alt+5"
+  - command: "focus workspace 6"
+    binding: "Alt+6"
+  - command: "focus workspace 7"
+    binding: "Alt+7"
+  - command: "focus workspace 8"
+    binding: "Alt+8"
+  - command: "focus workspace 9"
+    binding: "Alt+9"
+  - command: "focus workspace 10"
+    binding: "Alt+0"
+
+  # Move focused window to a workspace defined in `workspaces` config.
+  - commands: ["move to workspace 1"]
+    binding: "Alt+Shift+1"
+  - commands: ["move to workspace 2"]
+    binding: "Alt+Shift+2"
+  - commands: ["move to workspace 3"]
+    binding: "Alt+Shift+3"
+  - commands: ["move to workspace 4"]
+    binding: "Alt+Shift+4"
+  - commands: ["move to workspace 5"]
+    binding: "Alt+Shift+5"
+  - commands: ["move to workspace 6"]
+    binding: "Alt+Shift+6"
+  - commands: ["move to workspace 7"]
+    binding: "Alt+Shift+7"
+  - commands: ["move to workspace 8"]
+    binding: "Alt+Shift+8"
+  - commands: ["move to workspace 9"]
+    bindings: ["Alt+Shift+9"]
+  - commands: ["move to workspace 10"]
+    bindings: ["Alt+Shift+0"]
