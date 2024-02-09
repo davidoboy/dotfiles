@@ -51,3 +51,6 @@ To use the Spotify API, you need to create a Spotify app. Follow these steps:
 node .\spotify\js\song_info.js
 ```
 You will then be asked to login at http://localhost:3000/login. After which the component should work.
+
+## Credits
+My config was **heavily** inspired from this person's linux rice:  https://github.com/lokesh-krishna/dotfiles/tree/main/tokyo-night (I basically just added components)
