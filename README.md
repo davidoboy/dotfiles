@@ -7,3 +7,8 @@
 
 Arch Linux Awesomewm (WIP)
 ![alt text](assets/awesomewm-preview.png)
+
+Requirements
+
+picom-ftlabs-git
+jgmenu
